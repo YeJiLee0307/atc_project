@@ -239,7 +239,48 @@
   저는 단순한 워크스페이스 찾기 플랫폼을 만드는 것을 넘어서,<br>
   디지털 노마드의 여정에 오래도록 남을 수 있는 정체성과 경험을 구축하고자 했습니다.
 </p>
+<a href="https://yejilee0307.github.io/thirdpage/thirdpage.html" class="scroll-return" id="returnBtn">← Return</a>
 
+<style>
+  .scroll-return {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    background-color: #f3f3f3;
+    color: #333;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    border: 2px solid #aaa;
+    font-size: 0.95rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .scroll-return.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  let lastScrollTop = 0;
+  const returnBtn = document.getElementById("returnBtn");
+
+  window.addEventListener("scroll", function () {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > lastScrollTop) {
+      returnBtn.classList.add("hidden");
+    } else {
+      returnBtn.classList.remove("hidden");
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  }, false);
+</script>
+
+  
 </body>
 </html>
 
