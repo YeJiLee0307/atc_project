@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Project | Portfolio</title>
+
   <style>
     body {
       font-family: 'Helvetica Neue', sans-serif;
@@ -19,6 +20,11 @@
       border-bottom: 2px solid #ccc;
       padding-bottom: 10px;
       margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      margin: 60px 0 20px 0;
     }
 
     .scroll-gallery-wrapper {
@@ -48,231 +54,259 @@
       transition: transform 0.2s ease;
     }
 
-
     .scroll-gallery img:hover {
       transform: scale(1.03);
     }
 
-    .description {
-      font-size: 1rem;
-      max-width: 800px;
-      margin: 0 auto 40px auto;
-      line-height: 1.8;
-    }
-
+    .description,
     .gallery-description {
-      max-width: 800px;
-      margin: 20px auto 60px auto;
-      text-align:left;
       font-size: 1rem;
-      line-height: 1.8;
-      color: #444;
+      max-width: 900px;
+      margin: 0 auto 40px auto;
+      line-height: 1.9;
+      color: #333;
     }
 
+    .description p,
+    .gallery-description p {
+      margin: 0 0 14px 0;
+    }
+
+    .bullets {
+      margin: 12px 0 18px 0;
+      padding-left: 18px;
+    }
+
+    .bullets li {
+      margin: 6px 0;
+    }
+
+    .linkline {
+      margin-top: 14px;
+    }
+
+    /* ✅ Video styles */
+    .video-wrapper {
+      max-width: 900px;
+      margin: 20px auto 40px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .video-wrapper video {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background: #000;
+    }
+
+    /* ✅ Modal */
     .modal {
       display: none;
       position: fixed;
-      z-index: 100;
+      z-index: 1000;
       padding-top: 60px;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.8);
+      background-color: rgba(0,0,0,0.85);
       overflow: auto;
     }
 
     .modal-content {
       display: block;
       margin: auto;
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 8px;
+      max-width: 92%;
+      max-height: 88%;
+      border-radius: 10px;
     }
 
     .close {
       position: absolute;
-      top: 30px;
-      right: 40px;
+      top: 24px;
+      right: 32px;
       color: white;
-      font-size: 32px;
+      font-size: 34px;
       font-weight: bold;
       cursor: pointer;
+      user-select: none;
     }
 
-    .close:hover {
-      color: #ccc;
+    .close:hover { color: #ccc; }
+
+    /* ✅ Return button */
+    .scroll-return {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 999;
+      background-color: #f3f3f3;
+      color: #333;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 6px;
+      font-weight: bold;
+      border: 2px solid #aaa;
+      font-size: 0.95rem;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .scroll-return.hidden {
+      opacity: 0;
+      pointer-events: none;
     }
   </style>
 </head>
+
 <body>
+  <a href="https://yejilee0307.github.io/thirdpage/thirdpage.html" class="scroll-return" id="returnBtn">← Return</a>
 
-<h1>project: team projects</h1>
+  <h1>project: team projects</h1>
 
-<h2 style="font-size: 1.6rem; margin-bottom: 20px;">Sogang Ribbon: Sogang univ. restaurant archiving project</h2>
+  <!-- =========================
+       1) SOGANG RIBBON
+  ========================== -->
+  <h2>Sogang Ribbon: Sogang univ. restaurant archiving project</h2>
 
-<section>
+  <section>
+    <div class="scroll-gallery-wrapper">
+      <div class="scroll-gallery">
+        <img src="sogangpk.png" alt="Sogang Ribbon 0" onclick="openModal(this.src)">
+        <img src="sgrb1.png" alt="Sogang Ribbon 1" onclick="openModal(this.src)">
+        <img src="sgrb2.png" alt="Sogang Ribbon 2" onclick="openModal(this.src)">
+        <img src="sgrb3.png" alt="Sogang Ribbon 3" onclick="openModal(this.src)">
+        <img src="sgrb4.png" alt="Sogang Ribbon 4" onclick="openModal(this.src)">
+        <img src="sgrb5.png" alt="Sogang Ribbon 5" onclick="openModal(this.src)">
+        <img src="sgrb6.png" alt="Sogang Ribbon 6" onclick="openModal(this.src)">
+        <img src="sgrb7.png" alt="Sogang Ribbon 7" onclick="openModal(this.src)">
+        <img src="sgrb8.png" alt="Sogang Ribbon 8" onclick="openModal(this.src)">
+      </div>
+    </div>
+  </section>
+
+  <div class="description">
+    <p><strong>서강리본(Sogang Ribbon)</strong>은 서강대학교 학생 몇 명이 자발적으로 시작한 비공식 맛집 아카이빙 프로젝트입니다. 이 프로젝트는 우리가 식사 전에 한 번쯤 고민해보는 아주 일상적인 질문에서 출발했습니다.</p>
+    <p><strong>“오늘 어디 가지?”</strong></p>
+    <p>서강리본은 단순히 식당을 추천하는 것을 넘어, 서강 학생들의 감정과 기억이 머무는 공간들을 기록하는 것을 목표로 합니다.</p>
+    <p>이 프로젝트는 세 가지 상징적인 리본으로 구성됩니다.</p>
+
+    <ul class="bullets">
+      <li>❤️‍🔥 <strong>카디널 리본</strong> – 친구들과 가볍게 가기 좋은 친근한 식당</li>
+      <li>❤️ <strong>레드 리본</strong> – 음식에 진심인 사람들을 위한 식당</li>
+      <li>🩷 <strong>핑크 리본</strong> – 분위기와 감정을 나누기에 좋은 공간</li>
+    </ul>
+
+    <p>저는 이 프로젝트에서 비주얼 브랜딩과 전체 디자인 방향을 맡았습니다. 모든 정보에는 감정과 연결되기 위한 ‘디자인의 언어’가 필요하다고 믿었고, 각 공간의 감각적인 톤과 학생들의 기억이 자연스럽게 만날 수 있도록 하나의 시각 시스템을 구축하는 데 집중했습니다.</p>
+    <p>로고, 리본 컬러, 타이포그래피, 카드뉴스 레이아웃부터 사진의 톤, 굿즈의 질감까지 모든 요소가 조화를 이루도록 설계했습니다. 이 모든 시각 요소는 하나로 이어져 ‘서강리본’이라는 감정 서사를 형성합니다.</p>
+    <p>특히 카드뉴스는 단순 정보 나열이 아닌 <strong>시각적 에세이</strong>로 제작했습니다. 핵심 원칙은 단 하나였습니다.</p>
+    <p><strong>“정보를 전달하되, 공간의 분위기를 함께 전할 것.”</strong></p>
+    <p>서강리본은 스폰서나 광고 없이 운영되는 완전한 비영리 프로젝트입니다. 우리의 이야기가 누군가에게 닿고, 그 기억 속에 잠시라도 머물기를 바라는 마음으로 이 작업을 이어가고 있습니다.</p>
+
+    <p class="linkline">👉 <a href="https://www.instagram.com/sogang_ribbon/" target="_blank" rel="noopener noreferrer">Instagram에서 전체 보기</a></p>
+  </div>
+
+  <!-- =========================
+       2) REEBOK AI AD (INSERTED)
+  ========================== -->
+  <h2>Reebok AI Advertising Project: “Be Reebok – 일상을 리복답게”</h2>
+
+  <div class="video-wrapper">
+    <video controls playsinline>
+      <source src="project_kr/reebok1.mp4" type="video/mp4">
+      
+    </video>
+
+    <video controls playsinline>
+      <source src="project_kr/reebok2.mp4" type="video/mp4">
+      
+    </video>
+  </div>
+
+  <div class="description">
+    <p><strong>“Be Reebok – 일상을 리복답게”</strong>는 리복(REEBOK)의 브랜드 아이덴티티를 재정의하기 위한 AI 기반 광고디자인 프로젝트입니다. 단순 제품 홍보가 아닌, 브랜드의 정체성을 감성 서사 속에 자연스럽게 심는 브랜딩 광고를 목표로 기획되었습니다.</p>
+
+    <p>리복은 제품 경쟁력에 비해 MZ세대에게 브랜드 이미지가 희미하고, 떠올릴 수 있는 대표 아이콘이 부족하다는 한계가 있습니다. 이에 따라 <strong>“Reebok = Club C 85”</strong>라는 공식을 소비자 인식 속에 각인시키는 전략을 설정했습니다.</p>
+
+    <p>광고는 제품을 설명하는 방식이 아니라, 브랜드가 일상의 감정적인 순간들 속에 자연스럽게 존재하는 구조로 설계되었습니다. 학창시절, 이별, 재회, 가족, 겨울, 크리스마스 등 삶의 장면 속에 신발이 스며들도록 구성하여 리복을 유행이 아닌 ‘시간과 함께하는 클래식 아이템’으로 표현했습니다.</p>
+
+    <p>본 프로젝트는 촬영 없이 전 과정을 AI 기반으로 제작했습니다. 이미지 생성, 합성, 영상 변환, 음성 및 음원 제작까지 AI 툴을 활용했으며, AI를 단순 보조 도구가 아닌 브랜드 표현을 위한 시각 제작 수단으로 사용했습니다.</p>
+
+    <p>저는 이 프로젝트에서 광고 컨셉 기획, 브랜드 문제 정의, Club C 85 중심 브랜드 아이콘 전략 수립, 영상 서사 구조 설계, 톤앤무드 디렉팅을 담당하며 <strong>브랜드 방향을 설계하는 디렉션 역할</strong>을 수행했습니다.</p>
+  </div>
+
+  <!-- =========================
+       3) HACKATHON
+  ========================== -->
+  <h2>해커톤 UX/UI Design (클릭 시 이미지 확대)</h2>
+
   <div class="scroll-gallery-wrapper">
     <div class="scroll-gallery">
-      <img src="sogangpk.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb1.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb2.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb3.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb4.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb5.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb6.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb7.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-      <img src="sgrb8.png" alt="리본 아카이빙 1" onclick="openModal(this.src)">
-    
-
-      
+      <img src="h1.png" alt="hackathon 1" onclick="openModal(this.src)">
+      <img src="h2.png" alt="hackathon 2" onclick="openModal(this.src)">
+      <img src="h3.png" alt="hackathon 3" onclick="openModal(this.src)">
+      <img src="h4.png" alt="hackathon 4" onclick="openModal(this.src)">
+      <img src="h5.png" alt="hackathon 5" onclick="openModal(this.src)">
+      <img src="h6.png" alt="hackathon 6" onclick="openModal(this.src)">
+      <img src="h7.png" alt="hackathon 7" onclick="openModal(this.src)">
+      <img src="h8.png" alt="hackathon 8" onclick="openModal(this.src)">
+      <img src="h9.png" alt="hackathon 9" onclick="openModal(this.src)">
+      <img src="h10.png" alt="hackathon 10" onclick="openModal(this.src)">
+      <img src="h11.png" alt="hackathon 11" onclick="openModal(this.src)">
+      <img src="h12.png" alt="hackathon 12" onclick="openModal(this.src)">
+      <img src="h13.png" alt="hackathon 13" onclick="openModal(this.src)">
     </div>
   </div>
-</section>
 
-<p class="description">
-  Sogang Ribbon is an unofficial restaurant archiving project spontaneously organized by a small group of Sogang University students.
-It began with a simple, everyday hesitation we all share — that moment before a meal when we ask, 
-  <strong>“Where should we go?”</strong>
-  Beyond simply recommending restaurants, 
-  the project aims to record <strong>places where Sogang students</strong> emotions and memories linger.
-  
-  <br><br>
- The project is represented by three symbolic ribbons:
+  <div class="gallery-description">
+    <p>“Finding Place” 기능은 사용자가 주변의 카페와 작업 공간을 쉽게 찾을 수 있도록 돕는 핵심 기능입니다. 빠른 의사결정을 돕기 위해, 평점·영업시간·공간 이미지와 같은 주요 정보를 한눈에 볼 수 있도록 카드 기반 UI를 설계했습니다. 이를 통해 사용자는 여러 장소를 직관적으로 비교할 수 있습니다.</p>
 
-  <br>
-  - ❤️‍🔥 <strong>Cardinal Ribbon</strong> – friendly restaurants perfect for casual meals with friends<br>
-  - ❤️ <strong>Red Ribbon</strong> – dining spots for those who take food seriously집<br>
-  - 🩷 <strong>Pink Ribbon</strong> – spaces made for sharing mood and heartfelt moments
-  <br><br>
-  I was responsible for <strong>visual branding and overall design direction.</strong>
-  I believe that every piece of information needs a language of design to form an emotional connection.
-My goal was to build a visual system that allowed the sensory tone of each space and the students’ memories to meet naturally.
-  <br><br>
-  From the logo, ribbon colors, typography, and card news layouts to the tone of photographs and the texture of merchandise, every element was designed to harmonize — forming one cohesive emotional narrative called Sogang Ribbon.
-To me, design is not merely appearance, but a medium of sensibility—a way to speak to someone without words.
-  <br><br>
-  The card news pieces, in particular, were created not as lists of information, but as visual essays.
-Each content piece was crafted under one guiding principle: to convey atmosphere while delivering information.
-  <br><br>
-  Sogang Ribbon operates as a completely non-profit project, free from sponsorships or advertisements.
-We continue this work with one simple wish — that our stories might reach someone, and perhaps stay in their memory.
-  <br><br>
-  👉 <a href="https://www.instagram.com/sogang_ribbon/" target="_blank">Instagram에서 전체 보기</a>
-</p>
+    <p>지도 인터페이스는 네이버 지도 API를 활용해 구현했습니다. 실시간 위치 추적과 인터랙티브 마커 기능을 통해 지도와 카드 UI 사이를 자연스럽게 오갈 수 있도록 구성했습니다. 리뷰 작성 인터페이스는 글래스모피즘 오버레이 형태로 설계하여 흐름을 끊지 않으면서도 부드러운 사용자 경험을 유지하도록 했습니다.</p>
 
-<h2 style="margin-top: 60px;"> 해커톤 Ux/Ui Design (클릭시 이미지가 확대됩니다.)</h2>
+    <p>NomaCircle은 단순한 장소 탐색 플랫폼을 넘어, 커뮤니티 플랫폼으로도 기능합니다. 이를 위해 직군 기반의 Position Board, 관심사 기반의 Real Connect, 익명 토론을 위한 Anonymous Board를 설계했으며, 각 보드의 소통 방식에 맞추어 시각 구조와 인터랙션 모델을 다르게 구성했습니다.</p>
 
-<div class="scroll-gallery-wrapper">
-  <div class="scroll-gallery">
-    <img src="h1.png" alt="h1" onclick="openModal(this.src)">
-    <img src="h2.png" alt="h2" onclick="openModal(this.src)">
-    <img src="h3.png" alt="h3" onclick="openModal(this.src)">
-    <img src="h4.png" alt="h4" onclick="openModal(this.src)">
-    <img src="h5.png" alt="h5" onclick="openModal(this.src)">
-    <img src="h6.png" alt="h6" onclick="openModal(this.src)">
-    <img src="h7.png" alt="h7" onclick="openModal(this.src)">
-    <img src="h8.png" alt="h8" onclick="openModal(this.src)">
-    <img src="h9.png" alt="h9" onclick="openModal(this.src)">
-    <img src="h10.png" alt="h10" onclick="openModal(this.src)">
-    <img src="h11.png" alt="h11" onclick="openModal(this.src)">
-    <img src="h12.png" alt="h12" onclick="openModal(this.src)">
-    <img src="h13.png" alt="h13" onclick="openModal(this.src)">
+    <p>전체 디자인은 노마드 라이프스타일에서 영감을 받았습니다. 딥 네이비와 바이올렛 그라데이션을 중심으로 차분함과 집중감을 전달하면서도 미래적인 분위기를 유지했고, 산세리프 타이포그래피와 직관적인 아이콘을 활용해 가독성과 감정 표현을 보완했습니다.</p>
+
+    <p>이 프로젝트를 통해 저는 디자인이 물리적 공간과 디지털 경험을 연결할 수 있다는 확신을 더욱 갖게 되었습니다. 단순히 작업 공간을 찾는 플랫폼을 만드는 데서 그치지 않고, 디지털 노마드의 여정 전반에 함께하는 하나의 정체성과 경험을 구축하고자 했습니다.</p>
   </div>
-</div>
 
-<!-- 모달 이미지 표시 -->
-<div id="modal" class="modal" onclick="closeModal()">
-  <span class="close">&times;</span>
-  <img class="modal-content" id="modal-img" />
-</div>
+  <!-- Modal -->
+  <div id="modal" class="modal" onclick="closeModal()">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modal-img" alt="expanded image"/>
+  </div>
 
-<script>
-  function openModal(src) {
-    document.getElementById('modal').style.display = 'block';
-    document.getElementById('modal-img').src = src;
-  }
-
-  function closeModal() {
-    document.getElementById('modal').style.display = 'none';
-  }
-</script>
-
-<p class="gallery-description">
-   The <strong>“Finding Place”</strong> feature helps users discover nearby cafés and workspaces.
-    To support quick decision-making, I designed a <strong>card-based UI</strong> that surfaces key
-    information at a glance—<em>ratings, opening hours, and images</em>—so users can easily compare options.
-  <br><br>
-  For the map interface, I integrated the <strong>Naver Maps API</strong>, enabling seamless movement
-    between the map and the card UI with real-time <em>location tracking</em> and <em>interactive markers</em>.
-    Review submission appears in a <strong>glassmorphism overlay</strong> to avoid interrupting the flow and
-    keep the experience smooth.
-  <br><br>
-  The “Finding Place” feature serves as a core function that helps users discover nearby cafés and workspaces.
-To enable quick information recognition, I designed a card-based UI that allows users to easily compare places through visual elements such as ratings, opening hours, and images.
-The map interface was implemented using the Naver Maps API, allowing users to smoothly navigate between the map and the UI through location tracking and marker interactions.
-The review input interface adopts a glassmorphism overlay style to maintain a natural and uninterrupted user experience.
-  <br><br>
-  NomaCircle is more than just a platform for finding places — it also functions as a community platform.
-I designed the following three types of networking boards:
-  <br><br>
-  Position Board – role-based categories such as developers, designers, marketers, and founders, each represented with distinctive icons
-Real Connect – an open network based on shared interests
-Anonymous Board – a free discussion space where anonymity is fully guaranteed
-Each board was designed with distinct visual structures and interaction models, reflecting its unique communication style.
-I also implemented features such as commenting and anonymity options to encourage natural and active user engagement.
-  
-  <br><br>
- The overall design was inspired by the nomadic lifestyle.
-Its primary color palette, a deep navy and violet gradient, conveys a sense of calm and focus while maintaining a futuristic aesthetic.
-To ensure readability, I used sans-serif typography, and incorporated subtle emojis and intuitive icons to help express emotions and enhance the visual tone.
-  <br><br>
-  “Design not for what looks good  <br>
-  — design for where function meets emotion.”<br>
-  This project reinforced my belief that design can bridge the physical and digital worlds.<br>
-  I sought to go beyond creating a simple workspace-finding platform — to build an identity and experience that would stay with digital nomads throughout their journey, not just during their search.
-</p>
-<a href="https://yejilee0307.github.io/thirdpage/thirdpage.html" class="scroll-return" id="returnBtn">← Return</a>
-
-
-<style>
-  .scroll-return {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 999;
-    background-color: #f3f3f3;
-    color: #333;
-    text-decoration: none;
-    padding: 10px 16px;
-    border-radius: 6px;
-    font-weight: bold;
-    border: 2px solid #aaa;
-    font-size: 0.95rem;
-    box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    transition: opacity 0.3s ease-in-out;
-  }
-
-  .scroll-return.hidden {
-    opacity: 0;
-    pointer-events: none;
-  }
-</style>
-
-<script>
-  let lastScrollTop = 0;
-  const returnBtn = document.getElementById("returnBtn");
-
-  window.addEventListener("scroll", function () {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > lastScrollTop) {
-      returnBtn.classList.add("hidden");
-    } else {
-      returnBtn.classList.remove("hidden");
+  <script>
+    function openModal(src) {
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modal-img');
+      modal.style.display = 'block';
+      modalImg.src = src;
     }
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  }, false);
-</script>
 
-  
+    function closeModal() {
+      document.getElementById('modal').style.display = 'none';
+    }
+
+    // ESC로 모달 닫기
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Return 버튼 스크롤 방향에 따라 숨김/표시
+    let lastScrollTop = 0;
+    const returnBtn = document.getElementById("returnBtn");
+
+    window.addEventListener("scroll", function () {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        returnBtn.classList.add("hidden");
+      } else {
+        returnBtn.classList.remove("hidden");
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+    }, false);
+  </script>
+
 </body>
 </html>
-
